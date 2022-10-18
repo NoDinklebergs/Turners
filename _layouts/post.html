@@ -1,0 +1,45 @@
+---
+layout: default
+---
+{% include header.html %}
+
+<main class="post_content">
+  <article class="post">
+    <header>
+      <div class="post_description">
+        <p class="post_meta">2022, Oct 29th</p>
+        <h1 class="post_title">{{page.title}}</h1>
+      </div>
+    </header> <!-- End Header -->
+
+    <div class="entry_content">
+      <div align="center" style="width:100%; height: auto;">
+        <img src={{ "/assets/img/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}" width="100%" height="auto" >
+     </div>
+      {{page.content | markdownify}}
+      <div align="center" style="width:100%; height: auto;"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfBknvtqkCEdZDuf1BFtUlmSYKmd_uRtE_ZQ5zeGB11geDZTA/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div>
+      <div align="center" style="width:100%; height: auto; padding: 10px;border:1px solid white;"><iframe src="https://widgets.scribblemaps.com/sm/?d=true&amp;z=true&amp;l=true&amp;id=csVm75Ivxg&amp;s" allow="geolocation" allowfullscreen="" style="text-align:center" width="100%" height="550" frameborder="0" loading="lazy" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div>
+    </div>
+    <div class="post_wrapper">
+      <footer class="post_footer cf">
+        <div class="post_share">
+          <span>Share:</span>
+          <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" title="Share on Facebook" rel="nofollow" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" title="Share on Google+" rel="nofollow" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
+        </div>
+        <div class="post_tag">
+          <span>Tags:</span>
+          {% for tag in page.tags %}
+          <a href="{{site.baseurl}}/tags#{{tag}}" class="tag">{{ tag }}</a>
+          {% endfor %}
+        </div>
+      </footer>
+    </div>
+  </article> <!-- End Section Post -->
+
+  {% include disqus.html %}
+  
+</main> <!-- End Section Post Content -->
+
+{% include footer.html %}
